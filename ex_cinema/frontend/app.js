@@ -181,24 +181,6 @@ const sessionTime = document.getElementById("session-time");
 const sessionPrice = document.getElementById("session-price");
 const sessionSeats = document.getElementById("session-seats");
 
-if (sessionForm) {
-  sessionForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    await fetch(`${API}/sessions/`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        movie_id: Number(sessionMovie.value),
-        time: sessionTime.value.trim(),
-        price: Number(sessionPrice.value),
-        seats: Number(sessionSeats.value),
-      }),
-    });
-    sessionForm.reset();
-    loadSessions();
-  });
-}
-
 // ══════════════════════════════════════════════════════════════
 // ЗАДАНИЕ — форма добавления сеанса:
 //
